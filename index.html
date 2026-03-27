@@ -24,12 +24,18 @@
       font-size: 22px;
       color: #333;
     }
-    img {
+    .photo-grid {
+      display: none;
       margin-top: 20px;
-      max-width: 300px;
+      display: flex;
+      justify-content: center;
+      gap: 15px;
+      flex-wrap: wrap;
+    }
+    .photo-grid img {
+      max-width: 250px;
       border-radius: 10px;
       box-shadow: 0 4px 8px rgba(0,0,0,0.2);
-      display: none;
     }
     audio {
       margin-top: 20px;
@@ -43,23 +49,15 @@
   <button onclick="showMessage()">Reveal</button>
   <div id="message"></div>
 
-  <!-- First photo -->
-  <img id="photo1" 
-       src="https://www.dropbox.com/scl/fi/sxw0uafb0yn72a0c222kh/2421a5b9a6ef2843ddf9d245b3fb2d5d_0.jpeg?rlkey=3hdxt6o6y62e3d2dljtmu2s5j&st=hetcy7dz&raw=1" 
-       alt="Special Memory 1">
-
-  <!-- Second photo -->
-  <img id="photo2" 
-       src="https://www.dropbox.com/scl/fi/zrv7umdibnku5uphou85t/7c1cf5d291e3d397686c3eda4b832c58_0.jpeg?rlkey=vm5mn5mo64xpgmtmx5z5ak9rb&st=xpg8ey9d&raw=1" 
-       alt="Special Memory 2">
-
-  <!-- Third photo -->
-  <img id="photo3" 
-       src="https://www.dropbox.com/scl/fi/72plywqjkw19p2kzapjqq/05abc8d4afb7d981777b2557bb98b616.png?rlkey=lwib9tnsnj1q1sqf2q8sdmtyp&st=92ebc421&raw=1" 
-       alt="Special Memory 3">
+  <!-- Collage of photos -->
+  <div id="photoGrid" class="photo-grid">
+    <img src="https://www.dropbox.com/scl/fi/sxw0uafb0yn72a0c222kh/2421a5b9a6ef2843ddf9d245b3fb2d5d_0.jpeg?rlkey=3hdxt6o6y62e3d2dljtmu2s5j&st=hetcy7dz&raw=1" alt="Special Memory 1">
+    <img src="https://www.dropbox.com/scl/fi/zrv7umdibnku5uphou85t/7c1cf5d291e3d397686c3eda4b832c58_0.jpeg?rlkey=vm5mn5mo64xpgmtmx5z5ak9rb&st=xpg8ey9d&raw=1" alt="Special Memory 2">
+    <img src="https://www.dropbox.com/scl/fi/72plywqjkw19p2kzapjqq/05abc8d4afb7d981777b2557bb98b616.png?rlkey=lwib9tnsnj1q1sqf2q8sdmtyp&st=92ebc421&raw=1" alt="Special Memory 3">
+  </div>
 
   <!-- Music -->
-  <audio id="song" controls>
+  <audio id="song" autoplay>
     <source src="https://www.dropbox.com/scl/fi/670wbodb6colvbgeqc1vy/Clinton-Kane-I-GUESS-IM-IN-LOVE.mp3?rlkey=dukv6yong0u1y71107ibxw6s4&st=n4erwu49&raw=1" type="audio/mpeg">
     Your browser does not support the audio element.
   </audio>
@@ -68,10 +66,9 @@
     function showMessage() {
       document.getElementById("message").innerText = 
         "🌹 Happy Monthsary, my love! Thank you for every smile, every laugh, and every moment we share. Here’s to many more months together 💕";
-      document.getElementById("photo1").style.display = "block";
-      document.getElementById("photo2").style.display = "block";
-      document.getElementById("photo3").style.display = "block";
+      document.getElementById("photoGrid").style.display = "flex";
       document.getElementById("song").style.display = "block";
+      document.getElementById("song").play(); // autoplay music
     }
   </script>
 </body>
